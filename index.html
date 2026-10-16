@@ -1,0 +1,2224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f3ee">
+    <title>RUSH SOCIALS — Creative, considered.</title>
+    <style>
+        :root {
+            --paper: #f5f3ee;
+            --ink: #181816;
+            --muted: #77766f;
+            --line: #d9d6ce;
+            --accent: #e44f2b;
+            --white: #fffefa;
+            --max: 1240px;
+            --serif: Georgia, "Times New Roman", serif;
+            --sans: Arial, Helvetica, sans-serif
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: var(--sans);
+            -webkit-font-smoothing: antialiased
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        button,
+        input,
+        textarea {
+            font: inherit
+        }
+
+        button,
+        a {
+            -webkit-tap-highlight-color: transparent
+        }
+
+        button {
+            cursor: pointer
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 4px
+        }
+
+        ::selection {
+            background: var(--accent);
+            color: white
+        }
+
+        .wrap {
+            width: min(var(--max), calc(100% - 64px));
+            margin: auto
+        }
+
+        .eyebrow {
+            font-size: 10px;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            font-weight: 700
+        }
+
+        .muted {
+            color: var(--muted)
+        }
+
+        .topline {
+            height: 5px;
+            background: var(--accent)
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: rgba(245, 243, 238, .92);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(24, 24, 22, .12)
+        }
+
+        .nav {
+            height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px
+        }
+
+        .wordmark {
+            font-size: 20px;
+            font-weight: 900;
+            letter-spacing: -.075em;
+            line-height: .9
+        }
+
+        .wordmark span {
+            display: block;
+            font-size: 8px;
+            letter-spacing: .19em;
+            margin-top: 7px;
+            font-weight: 600
+        }
+
+        .navlinks {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+            font-size: 12px
+        }
+
+        .navlinks a {
+            transition: color .2s
+        }
+
+        .navlinks a:hover {
+            color: var(--accent)
+        }
+
+        .nav-cta,
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 13px 17px;
+            border: 1px solid var(--ink);
+            background: var(--ink);
+            color: var(--white);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .02em;
+            transition: background .2s, color .2s, border .2s
+        }
+
+        .nav-cta:hover,
+        .button:hover {
+            background: var(--accent);
+            border-color: var(--accent)
+        }
+
+        .button.light {
+            background: transparent;
+            color: var(--ink)
+        }
+
+        .button.light:hover {
+            color: white
+        }
+
+        .menu-toggle {
+            display: none;
+            border: 1px solid var(--line);
+            background: none;
+            padding: 10px
+        }
+
+        .hero {
+            padding: 84px 0 68px;
+            min-height: 590px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between
+        }
+
+        .hero-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            align-items: start
+        }
+
+        .hero-note {
+            max-width: 240px;
+            font-size: 12px;
+            line-height: 1.7;
+            color: var(--muted)
+        }
+
+        .hero h1 {
+            font-size: clamp(62px, 11.6vw, 158px);
+            letter-spacing: -.095em;
+            line-height: .79;
+            margin: 68px 0 38px;
+            font-weight: 800
+        }
+
+        .hero h1 em {
+            font-family: var(--serif);
+            font-weight: 400;
+            letter-spacing: -.09em
+        }
+
+        .hero-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 24px
+        }
+
+        .hero-desc {
+            max-width: 460px;
+            font-size: 16px;
+            line-height: 1.6
+        }
+
+        .hero-desc strong {
+            font-weight: 700
+        }
+
+        .scroll-note {
+            font-size: 10px;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .scroll-note:before {
+            content: "";
+            height: 1px;
+            width: 38px;
+            background: var(--accent)
+        }
+
+        .marquee {
+            border-block: 1px solid var(--line);
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 17px 0;
+            font-size: 10px;
+            letter-spacing: .18em;
+            text-transform: uppercase
+        }
+
+        .marquee-track {
+            display: flex;
+            justify-content: space-around;
+            gap: 36px;
+            min-width: 700px
+        }
+
+        .marquee b {
+            color: var(--accent);
+            font-size: 15px
+        }
+
+        .section {
+            padding: 100px 0
+        }
+
+        .section-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 30px;
+            margin-bottom: 40px
+        }
+
+        .section-head h2 {
+            font-size: clamp(38px, 6vw, 76px);
+            letter-spacing: -.075em;
+            line-height: .92;
+            margin: 16px 0 0;
+            font-weight: 700
+        }
+
+        .section-head p {
+            max-width: 300px;
+            font-size: 13px;
+            line-height: 1.7;
+            color: var(--muted);
+            margin: 0
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: 1.12fr .88fr;
+            gap: 54px 22px
+        }
+
+        .project {
+            min-width: 0
+        }
+
+        .project:nth-child(even) {
+            padding-top: 88px
+        }
+
+        .project-visual {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 1.22;
+            background: #e5e1d8;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .project-visual:after {
+            content: "";
+            position: absolute;
+            inset: 12px;
+            border: 1px solid rgba(24, 24, 22, .12);
+            pointer-events: none
+        }
+
+        .project-cover {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 46%;
+            transform: scale(1.24)
+        }
+
+        .project-cover-label {
+            position: absolute;
+            z-index: 1;
+            left: 28px;
+            bottom: 28px;
+            padding: 9px 11px;
+            color: white;
+            background: #181816d9;
+            font-size: 9px;
+            letter-spacing: .13em;
+            text-transform: uppercase
+        }
+
+        .project-badge {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--accent);
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase
+        }
+
+        .visual-wedding {
+            background: #ded7ca
+        }
+
+        .visual-wedding .poster {
+            background: #f7f2e9;
+            color: #25231f;
+            transform: rotate(-5deg);
+            box-shadow: 20px 24px 50px #0002
+        }
+
+        .poster {
+            width: 54%;
+            aspect-ratio: .72;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 8%;
+            position: relative;
+            transition: transform .5s
+        }
+
+        .project:hover .poster {
+            transform: rotate(0deg) scale(1.03)
+        }
+
+        .poster-top {
+            font-size: 8px;
+            letter-spacing: .17em
+        }
+
+        .poster-title {
+            font: clamp(26px, 4vw, 54px)/.84 var(--serif);
+            letter-spacing: -.06em
+        }
+
+        .poster-title span {
+            font-style: italic
+        }
+
+        .poster-bottom {
+            font-size: 7px;
+            letter-spacing: .1em;
+            border-top: 1px solid currentColor;
+            padding-top: 10px
+        }
+
+        .visual-food {
+            background: #c6d1c2
+        }
+
+        .food-layout {
+            width: 72%;
+            height: 73%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            transform: rotate(4deg);
+            transition: transform .5s
+        }
+
+        .project:hover .food-layout {
+            transform: rotate(0) scale(1.03)
+        }
+
+        .food-block {
+            background: #eff0e7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden
+        }
+
+        .food-block.dark {
+            background: #313d30;
+            color: #f4eee0
+        }
+
+        .food-circle {
+            width: 76%;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background: #c45d3d;
+            box-shadow: inset -15px -12px 0 #a4462d;
+            position: relative
+        }
+
+        .food-circle:after {
+            content: "";
+            position: absolute;
+            width: 65%;
+            height: 65%;
+            border: 2px solid #e7b27e;
+            border-radius: 50%;
+            left: 18%;
+            top: 17%
+        }
+
+        .food-type {
+            font: italic 28px var(--serif);
+            text-align: center;
+            padding: 10px
+        }
+
+        .visual-brand {
+            background: #d6d0c6
+        }
+
+        .brand-layout {
+            width: 78%;
+            height: 68%;
+            display: flex;
+            gap: 12px;
+            align-items: stretch;
+            transform: rotate(-3deg);
+            transition: transform .5s
+        }
+
+        .project:hover .brand-layout {
+            transform: rotate(0) scale(1.03)
+        }
+
+        .brand-card {
+            flex: 1;
+            background: #edebe4;
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between
+        }
+
+        .brand-card.dark {
+            background: #222;
+            color: #f5f3ee
+        }
+
+        .brand-card strong {
+            font-size: clamp(16px, 2vw, 30px);
+            letter-spacing: -.08em
+        }
+
+        .brand-card small {
+            font-size: 7px;
+            letter-spacing: .13em
+        }
+
+        .brand-mark {
+            font: italic clamp(36px, 6vw, 80px) var(--serif);
+            align-self: center
+        }
+
+        .visual-campaign {
+            background: #e8c6b8
+        }
+
+        .campaign-layout {
+            width: 76%;
+            height: 72%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            transform: rotate(3deg);
+            transition: transform .5s
+        }
+
+        .project:hover .campaign-layout {
+            transform: rotate(0) scale(1.03)
+        }
+
+        .campaign-tile {
+            background: #f4e9df;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden
+        }
+
+        .campaign-tile:nth-child(2) {
+            background: #b54e36;
+            color: white
+        }
+
+        .campaign-tile:nth-child(3) {
+            background: #e7a88c
+        }
+
+        .campaign-tile:nth-child(4) {
+            background: #f4e9df
+        }
+
+        .campaign-tile span {
+            font: italic 24px var(--serif);
+            letter-spacing: -.05em
+        }
+
+        .campaign-tile .sun {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            background: #d8784c
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            gap: 15px;
+            margin-top: 17px
+        }
+
+        .project-meta h3 {
+            font-size: 22px;
+            letter-spacing: -.055em;
+            margin: 0 0 7px
+        }
+
+        .project-meta p {
+            font-size: 12px;
+            color: var(--muted);
+            margin: 0;
+            line-height: 1.6
+        }
+
+        .project-index {
+            font-size: 10px;
+            color: var(--muted);
+            padding-top: 5px
+        }
+
+        .project-open {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            font-weight: 700;
+            margin-top: 18px;
+            border-bottom: 1px solid var(--ink);
+            padding-bottom: 5px
+        }
+
+        .project-open:hover {
+            color: var(--accent);
+            border-color: var(--accent)
+        }
+
+        .project-open span {
+            font-size: 16px
+        }
+
+        .project-open[aria-disabled="true"] {
+            cursor: pointer;
+            color: var(--muted);
+            border-color: var(--line)
+        }
+
+        .project-open[aria-disabled="true"]:hover {
+            color: var(--accent);
+            border-color: var(--accent)
+        }
+
+        .project-setup {
+            margin-top: 46px;
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            padding: 20px 0
+        }
+
+        .project-setup summary {
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 700
+        }
+
+        .setup-copy {
+            max-width: 760px;
+            padding-top: 14px;
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.8
+        }
+
+        .setup-copy strong {
+            color: var(--ink)
+        }
+
+        .setup-copy code {
+            color: var(--ink);
+            background: #e9e5dc;
+            padding: 2px 4px
+        }
+
+        .manifesto {
+            background: var(--ink);
+            color: var(--paper);
+            padding: 95px 0
+        }
+
+        .manifesto-grid {
+            display: grid;
+            grid-template-columns: .6fr 1.4fr;
+            gap: 50px
+        }
+
+        .manifesto h2 {
+            font-size: clamp(38px, 6.3vw, 82px);
+            line-height: .95;
+            letter-spacing: -.08em;
+            margin: 0;
+            font-weight: 600
+        }
+
+        .manifesto h2 em {
+            font-family: var(--serif);
+            font-weight: 400;
+            color: #d4cec2
+        }
+
+        .manifesto-copy {
+            max-width: 480px;
+            margin-top: 30px;
+            color: #c4c1b8;
+            font-size: 14px;
+            line-height: 1.85
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-top: 1px solid #454541;
+            margin-top: 65px
+        }
+
+        .service {
+            padding: 22px 18px 0 0;
+            border-right: 1px solid #454541;
+            margin-right: 18px;
+            min-height: 135px
+        }
+
+        .service:last-child {
+            border: 0
+        }
+
+        .service-num {
+            font-size: 10px;
+            color: #aaa79f
+        }
+
+        .service h3 {
+            font-size: 17px;
+            letter-spacing: -.04em;
+            margin: 27px 0 9px
+        }
+
+        .service p {
+            font-size: 11px;
+            color: #aaa79f;
+            line-height: 1.7;
+            margin: 0
+        }
+
+        .process-list {
+            border-top: 1px solid var(--line)
+        }
+
+        .process-row {
+            display: grid;
+            grid-template-columns: 80px 1fr 1.1fr 28px;
+            gap: 24px;
+            align-items: center;
+            padding: 25px 0;
+            border-bottom: 1px solid var(--line)
+        }
+
+        .process-row .num {
+            font-size: 11px;
+            color: var(--accent)
+        }
+
+        .process-row h3 {
+            font-size: 22px;
+            letter-spacing: -.05em;
+            margin: 0
+        }
+
+        .process-row p {
+            font-size: 12px;
+            line-height: 1.7;
+            color: var(--muted);
+            margin: 0;
+            max-width: 390px
+        }
+
+        .process-row .plus {
+            font-size: 20px;
+            text-align: right
+        }
+
+        .contact {
+            background: #e9e5dc;
+            padding: 100px 0
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1.15fr .85fr;
+            gap: 70px
+        }
+
+        .contact h2 {
+            font-size: clamp(54px, 9vw, 112px);
+            letter-spacing: -.09em;
+            line-height: .82;
+            margin: 20px 0 30px
+        }
+
+        .contact h2 em {
+            font-family: var(--serif);
+            font-weight: 400
+        }
+
+        .contact-intro {
+            font-size: 14px;
+            line-height: 1.8;
+            max-width: 400px;
+            color: #65635d
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 17px;
+            align-content: start;
+            padding-top: 10px
+        }
+
+        .field {
+            display: grid;
+            gap: 8px
+        }
+
+        .field label {
+            font-size: 10px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            font-weight: 700
+        }
+
+        .field input,
+        .field textarea,
+        .field select {
+            width: 100%;
+            border: 0;
+            border-bottom: 1px solid #bdb9af;
+            background: transparent;
+            padding: 12px 0;
+            outline: none;
+            border-radius: 0;
+            color: var(--ink);
+            font-size: 13px
+        }
+
+        .field input:focus,
+        .field textarea:focus,
+        .field select:focus {
+            border-color: var(--accent)
+        }
+
+        .field textarea {
+            min-height: 86px;
+            resize: vertical
+        }
+
+        .form-note {
+            font-size: 10px;
+            color: var(--muted);
+            line-height: 1.6
+        }
+
+        .form-status {
+            font-size: 12px;
+            line-height: 1.6;
+            display: none
+        }
+
+        .form-status.show {
+            display: block
+        }
+
+        .footer {
+            padding: 25px 0;
+            background: var(--ink);
+            color: var(--paper)
+        }
+
+        .footer-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px
+        }
+
+        .footer .wordmark {
+            font-size: 17px
+        }
+
+        .footer p,
+        .footer a {
+            font-size: 10px;
+            color: #b6b3aa
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 18px
+        }
+
+        .footer a:hover {
+            color: white
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity .7s ease, transform .7s ease
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        /* presentation viewer */
+        .viewer {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            background: #171715;
+            color: #f5f3ee;
+            display: none;
+            flex-direction: column
+        }
+
+        .viewer.open {
+            display: flex
+        }
+
+        .viewer-bar {
+            height: 72px;
+            flex-shrink: 0;
+            border-bottom: 1px solid #3a3a36;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 28px;
+            gap: 20px
+        }
+
+        .viewer-brand {
+            font-weight: 900;
+            letter-spacing: -.07em;
+            font-size: 17px
+        }
+
+        .viewer-title {
+            font-size: 11px;
+            color: #bcbab2;
+            text-align: center
+        }
+
+        .viewer-actions {
+            display: flex;
+            align-items: center;
+            gap: 9px
+        }
+
+        .icon-btn {
+            border: 1px solid #51514b;
+            background: transparent;
+            color: #f5f3ee;
+            width: 38px;
+            height: 38px;
+            display: grid;
+            place-items: center;
+            font-size: 18px
+        }
+
+        .icon-btn:hover {
+            background: var(--accent);
+            border-color: var(--accent)
+        }
+
+        .icon-btn[hidden] {
+            display: none
+        }
+
+        .viewer-main {
+            flex: 1;
+            min-height: 0;
+            display: grid;
+            grid-template-columns: 1fr 230px
+        }
+
+        .slide-stage {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 36px;
+            min-width: 0;
+            min-height: 0
+        }
+
+        .slide-frame {
+            aspect-ratio: 16/9;
+            width: min(100%, 1050px);
+            max-height: 100%;
+            background: #e8e3d9;
+            color: #191916;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 90px #0006
+        }
+
+        .slide-frame iframe,
+        .slide-frame img,
+        .slide-frame canvas {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border: 0;
+            display: block;
+            background: #e8e3d9
+        }
+
+        .slide-frame canvas {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+            margin: auto
+        }
+
+        .slide-placeholder {
+            height: 100%;
+            padding: 7%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: #e9e5dc
+        }
+
+        .slide-placeholder .big {
+            font-size: clamp(28px, 5vw, 76px);
+            letter-spacing: -.08em;
+            line-height: .86;
+            max-width: 80%
+        }
+
+        .slide-placeholder .big em {
+            font-family: var(--serif);
+            font-weight: 400
+        }
+
+        .slide-placeholder .small {
+            font-size: 9px;
+            letter-spacing: .15em;
+            text-transform: uppercase
+        }
+
+        .slide-placeholder .rule {
+            height: 1px;
+            background: #aaa69d;
+            width: 100%
+        }
+
+        .slide-placeholder .bottom {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            font-size: 9px;
+            letter-spacing: .1em;
+            text-transform: uppercase
+        }
+
+        .viewer-sidebar {
+            border-left: 1px solid #3a3a36;
+            padding: 22px 16px;
+            display: flex;
+            flex-direction: column;
+            min-height: 0
+        }
+
+        .side-label {
+            font-size: 9px;
+            letter-spacing: .15em;
+            color: #aaa79f;
+            text-transform: uppercase;
+            margin-bottom: 14px
+        }
+
+        .thumbs {
+            display: grid;
+            gap: 9px;
+            overflow: auto
+        }
+
+        .thumb {
+            border: 1px solid #44443f;
+            background: #242421;
+            color: #f5f3ee;
+            text-align: left;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 76px 1fr;
+            gap: 10px;
+            align-items: center
+        }
+
+        .thumb.active {
+            border-color: var(--accent)
+        }
+
+        .thumb-preview {
+            aspect-ratio: 16/10;
+            background: #ded9cf;
+            color: #1b1b18;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font: italic 19px var(--serif)
+        }
+
+        .thumb-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        .thumb-copy {
+            font-size: 10px;
+            line-height: 1.5;
+            padding-right: 5px
+        }
+
+        .thumb-copy span {
+            display: block;
+            color: #9d9b94;
+            font-size: 9px
+        }
+
+        .viewer-foot {
+            height: 64px;
+            flex-shrink: 0;
+            border-top: 1px solid #3a3a36;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 28px;
+            gap: 18px
+        }
+
+        .viewer-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .viewer-count {
+            font-size: 11px;
+            color: #aaa79f;
+            min-width: 70px;
+            text-align: center
+        }
+
+        .progress {
+            height: 2px;
+            background: #44443f;
+            flex: 1;
+            max-width: 320px
+        }
+
+        .progress span {
+            display: block;
+            height: 100%;
+            width: 25%;
+            background: var(--accent);
+            transition: width .25s
+        }
+
+        .viewer-help {
+            font-size: 10px;
+            color: #aaa79f
+        }
+
+        .viewer-empty {
+            max-width: 500px;
+            text-align: center;
+            padding: 40px
+        }
+
+        .viewer-empty h3 {
+            font-size: 26px;
+            letter-spacing: -.05em
+        }
+
+        .viewer-empty p {
+            font-size: 13px;
+            color: #aaa79f;
+            line-height: 1.7
+        }
+
+        .viewer-empty a {
+            color: white;
+            text-decoration: underline;
+            text-underline-offset: 3px
+        }
+
+        .viewer-empty code {
+            color: #f5f3ee;
+            background: #333;
+            padding: 3px 6px
+        }
+
+        .pdf-note {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 9px;
+            color: #aaa79f;
+            white-space: nowrap
+        }
+
+        .viewer:fullscreen {
+            width: 100%;
+            height: 100%
+        }
+
+        .viewer:fullscreen .viewer-bar,
+        .viewer:fullscreen .viewer-foot,
+        .viewer.immersive-mode .viewer-bar,
+        .viewer.immersive-mode .viewer-foot {
+            display: none
+        }
+
+        .viewer:fullscreen .viewer-main,
+        .viewer.immersive-mode .viewer-main {
+            grid-template-columns: 1fr
+        }
+
+        .viewer:fullscreen .viewer-sidebar,
+        .viewer.immersive-mode .viewer-sidebar {
+            display: none
+        }
+
+        .viewer:fullscreen .viewer-main,
+        .viewer.immersive-mode .viewer-main {
+            display: block
+        }
+
+        .viewer:fullscreen .slide-stage,
+        .viewer.immersive-mode .slide-stage {
+            width: 100%;
+            height: 100%;
+            padding: 0
+        }
+
+        .viewer:fullscreen .slide-frame,
+        .viewer.immersive-mode .slide-frame {
+            width: 100%;
+            height: 100%;
+            max-width: none;
+            max-height: none;
+            aspect-ratio: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #171715;
+            box-shadow: none
+        }
+
+        .viewer:fullscreen .slide-frame img,
+        .viewer.immersive-mode .slide-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain
+        }
+
+        .viewer:fullscreen .slide-frame canvas,
+        .viewer.immersive-mode .slide-frame canvas {
+            max-width: 100%;
+            max-height: 100%;
+            margin: auto
+        }
+
+        .viewer button:disabled {
+            opacity: .4;
+            cursor: not-allowed
+        }
+
+        @media(max-width:800px) {
+            .wrap {
+                width: min(var(--max), calc(100% - 36px))
+            }
+
+            .nav {
+                height: 66px
+            }
+
+            .navlinks {
+                display: none;
+                position: absolute;
+                top: 66px;
+                left: 0;
+                right: 0;
+                background: var(--paper);
+                padding: 22px 18px 25px;
+                border-bottom: 1px solid var(--line);
+                flex-direction: column;
+                align-items: stretch;
+                gap: 20px
+            }
+
+            .navlinks.open {
+                display: flex
+            }
+
+            .navlinks a {
+                font-size: 14px
+            }
+
+            .nav-cta {
+                display: none
+            }
+
+            .menu-toggle {
+                display: block
+            }
+
+            .hero {
+                padding: 62px 0 52px;
+                min-height: 530px
+            }
+
+            .hero-top {
+                flex-direction: column;
+                gap: 20px
+            }
+
+            .hero-note {
+                max-width: 330px
+            }
+
+            .hero h1 {
+                margin: 60px 0 35px;
+                font-size: clamp(60px, 15vw, 110px)
+            }
+
+            .hero-bottom {
+                align-items: start;
+                flex-direction: column
+            }
+
+            .section {
+                padding: 72px 0
+            }
+
+            .section-head {
+                align-items: start;
+                flex-direction: column
+            }
+
+            .section-head p {
+                max-width: 440px
+            }
+
+            .work-grid {
+                gap: 40px 14px
+            }
+
+            .project:nth-child(even) {
+                padding-top: 48px
+            }
+
+            .project-meta h3 {
+                font-size: 18px
+            }
+
+            .project-meta p {
+                font-size: 11px
+            }
+
+            .manifesto {
+                padding: 72px 0
+            }
+
+            .manifesto-grid {
+                grid-template-columns: 1fr;
+                gap: 24px
+            }
+
+            .manifesto-copy {
+                margin-top: 22px
+            }
+
+            .services {
+                grid-template-columns: 1fr 1fr;
+                row-gap: 24px
+            }
+
+            .service:nth-child(2) {
+                border-right: 0
+            }
+
+            .service {
+                min-height: 120px
+            }
+
+            .process-row {
+                grid-template-columns: 32px 1fr 24px;
+                gap: 14px
+            }
+
+            .process-row p {
+                grid-column: 2;
+                grid-row: 2
+            }
+
+            .process-row .plus {
+                grid-column: 3;
+                grid-row: 1
+            }
+
+            .contact {
+                padding: 72px 0
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 38px
+            }
+
+            .viewer-bar {
+                height: 60px;
+                padding: 0 14px
+            }
+
+            .viewer-title {
+                display: none
+            }
+
+            .viewer-main {
+                grid-template-columns: 1fr;
+                grid-template-rows: minmax(0, 1fr) 98px
+            }
+
+            .viewer-sidebar {
+                display: flex;
+                border-left: 0;
+                border-top: 1px solid #3a3a36;
+                padding: 8px 12px
+            }
+
+            .side-label {
+                display: none
+            }
+
+            .thumbs {
+                display: flex;
+                gap: 8px;
+                overflow-x: auto;
+                overflow-y: hidden
+            }
+
+            .thumb {
+                flex: 0 0 150px;
+                grid-template-columns: 65px 1fr
+            }
+
+            .slide-stage {
+                padding: 18px
+            }
+
+            .viewer-foot {
+                height: 58px;
+                padding: 0 14px
+            }
+
+            .viewer-help {
+                display: none
+            }
+
+            .pdf-note {
+                display: none
+            }
+        }
+
+        @media(max-width:520px) {
+            .hero h1 {
+                font-size: 18vw
+            }
+
+            .hero-desc {
+                font-size: 14px
+            }
+
+            .work-grid {
+                grid-template-columns: 1fr;
+                gap: 36px
+            }
+
+            .project:nth-child(even) {
+                padding-top: 0
+            }
+
+            .project-visual {
+                aspect-ratio: 1.15
+            }
+
+            .poster-title {
+                font-size: 48px
+            }
+
+            .section-head h2 {
+                font-size: 48px
+            }
+
+            .services {
+                margin-top: 42px
+            }
+
+            .service {
+                margin-right: 10px;
+                padding-right: 10px
+            }
+
+            .service h3 {
+                font-size: 15px
+            }
+
+            .footer-row {
+                align-items: flex-start;
+                flex-direction: column
+            }
+
+            .footer-links {
+                flex-wrap: wrap
+            }
+
+            .viewer-brand {
+                font-size: 14px
+            }
+
+            .viewer-actions .icon-btn {
+                width: 34px;
+                height: 34px
+            }
+
+            .slide-stage {
+                padding: 8px
+            }
+
+            .slide-frame {
+                width: 100%
+            }
+
+            .viewer-foot {
+                gap: 8px
+            }
+
+            .viewer-controls .button {
+                padding: 10px;
+                font-size: 10px
+            }
+
+            .viewer-main {
+                grid-template-rows: minmax(0, 1fr) 82px
+            }
+
+            .thumb {
+                flex-basis: 125px;
+                grid-template-columns: 54px 1fr
+            }
+
+            .project-cover-label {
+                left: 20px;
+                bottom: 20px
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            html {
+                scroll-behavior: auto
+            }
+
+            *,
+            *:before,
+            *:after {
+                animation: none !important;
+                transition: none !important
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="topline"></div>
+    <header>
+        <div class="wrap nav">
+            <a class="wordmark" href="#home" aria-label="Rush Socials home">RUSH<span>SOCIALS / CREATIVE
+                    STUDIO</span></a>
+            <nav class="navlinks" id="navlinks" aria-label="Main navigation">
+                <a href="#work">Selected work</a><a href="#approach">Our approach</a><a
+                    href="#services">Capabilities</a><a href="#contact">Contact</a>
+            </nav>
+            <a class="nav-cta" href="#contact">Start a conversation <span>↗</span></a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+        </div>
+    </header>
+    <main id="home">
+        <section class="wrap hero">
+            <div class="hero-top">
+                <div class="eyebrow">Independent creative & marketing studio<br>India · Available worldwide</div>
+                <p class="hero-note">Good work gets attention.<br>Considered work creates a feeling that stays.</p>
+            </div>
+            <h1>Make it<br><em>mean</em> more<span style="color:var(--accent)">.</span></h1>
+            <div class="hero-bottom">
+                <p class="hero-desc">RUSH SOCIALS brings <strong>strategy, storytelling and execution</strong> together
+                    to make brands feel unmistakable — from the first idea to the final detail.</p>
+                <a class="scroll-note" href="#work">Explore selected work</a>
+            </div>
+        </section>
+        <div class="marquee" aria-label="Our capabilities">
+            <div class="marquee-track"><span>Brand worlds</span><b>✳</b><span>Campaigns with
+                    character</span><b>✳</b><span>Experiences, made seamless</span><b>✳</b><span>Social that
+                    connects</span><b>✳</b><span>Brand worlds</span></div>
+        </div>
+        <section class="section wrap" id="work">
+            <div class="section-head reveal">
+                <div>
+                    <div class="eyebrow">01 / Selected work</div>
+                    <h2>Ideas, made<br>tangible.</h2>
+                </div>
+                <p>A snapshot of the worlds we build: clear thinking, confident visuals and stories designed around the
+                    people they need to reach.</p>
+            </div>
+            <div class="work-grid">
+                <article class="project reveal">
+                    <div class="project-visual visual-wedding" aria-label="Cover slide from the supplied RUSH SOCIALS wedding presentation">
+                        <img class="project-cover" src="Rush_Socials_Wedding_Pitch_Deck/cover.jpeg" alt="RUSH SOCIALS Wedding Management & Creative Services pitch deck cover">
+                    </div>
+                    <div class="project-meta">
+                        <div>
+                            <h3>Wedding Management & Creative</h3>
+                            <p>Experience design · Show management · Production</p>
+                        </div><span class="project-index">01 / 04</span>
+                    </div>
+                    <a href="#" class="project-open" data-deck="wedding">View presentation <span>↗</span></a>
+                </article>
+                <article class="project reveal">
+                    <div class="project-visual visual-food" aria-label="Hospitality campaign artwork">
+                        <div class="food-layout">
+                            <div class="food-block">
+                                <div class="food-circle"></div>
+                            </div>
+                            <div class="food-block dark">
+                                <div class="food-type">A slower<br>kind of day.</div>
+                            </div>
+                            <div class="food-block dark">
+                                <div class="food-type">Stay<br>awhile.</div>
+                            </div>
+                            <div class="food-block">
+                                <div class="food-type">ESCAPE / EXPLORE</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-meta">
+                        <div>
+                            <h3>Hospitality & Destination</h3>
+                            <p>Content strategy · Social campaigns · Storytelling</p>
+                        </div><span class="project-index">02 / 04</span>
+                    </div>
+                    <a href="#" class="project-open" data-deck="hospitality">View presentation <span>↗</span></a>
+                </article>
+                <article class="project reveal">
+                    <div class="project-visual visual-brand" aria-label="Brand strategy project artwork">
+                        <div class="brand-layout">
+                            <div class="brand-card"><small>POSITIONING /
+                                    01</small><strong>MAKE<br>YOUR<br>MARK.</strong><small>STRATEGY WITH
+                                    INTENTION</small></div>
+                            <div class="brand-card dark"><small>R/S — STUDIO</small>
+                                <div class="brand-mark">R.</div><small>IDENTITY · VOICE · WORLD</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-meta">
+                        <div>
+                            <h3>Brand Strategy & Identity</h3>
+                            <p>Positioning · Visual direction · Brand systems</p>
+                        </div><span class="project-index">03 / 04</span>
+                    </div>
+                    <a href="#" class="project-open" data-deck="branding">View presentation <span>↗</span></a>
+                </article>
+                <article class="project reveal">
+                    <div class="project-visual visual-campaign" aria-label="Social campaign project artwork">
+                        <div class="campaign-layout">
+                            <div class="campaign-tile"><span>Scroll<br>stopping.</span></div>
+                            <div class="campaign-tile"><span>Less noise.<br>More signal.</span></div>
+                            <div class="campaign-tile">
+                                <div class="sun"></div>
+                            </div>
+                            <div class="campaign-tile"><span>Make it<br>matter.</span></div>
+                        </div>
+                    </div>
+                    <div class="project-meta">
+                        <div>
+                            <h3>Social & Digital Campaigns</h3>
+                            <p>Creative concepts · Content systems · Paid media</p>
+                        </div><span class="project-index">04 / 04</span>
+                    </div>
+                    <a href="#" class="project-open" data-deck="social">View presentation <span>↗</span></a>
+                </article>
+            </div>
+            <p class="muted" style="font-size:11px;margin-top:35px;line-height:1.7">The wedding presentation uses supplied slide artwork. Artwork for the other categories is illustrative and is not represented as client work; their real decks can be added in the project configuration.</p>
+            <details class="project-setup">
+                <summary>Adding a project and preparing presentation files</summary>
+                <div class="setup-copy">
+                    <p><strong>Recommended folder layout:</strong> keep <code>index.html</code> beside <code>decks/</code> (PDFs), <code>original-files/</code> (optional PPTX downloads), and <code>presentations/project-id/</code> (converted slide images). The supplied wedding images are currently in <code>Rush_Socials_Wedding_Pitch_Deck/</code>.</p>
+                    <p><strong>PowerPoint:</strong> export the deck to PDF with Microsoft PowerPoint or LibreOffice Impress, then export each PDF page as a high-quality JPG or PNG. For example, with Poppler installed, run <code>pdftoppm -jpeg -r 150 input.pdf presentations/project-id/slide</code>; rename output pages to <code>slide-01.jpg</code>, <code>slide-02.jpg</code>, etc. Add the image paths, title, description, category, and optional original PPTX path to the <code>projects</code> object in this file. Browsers do not render PPTX files directly.</p>
+                    <p><strong>PDF:</strong> on the project entry, set <code>pdf: "decks/name.pdf"</code> and <code>format: "PDF presentation"</code>. PDF page rendering and thumbnails use PDF.js from a CDN when a PDF is opened, so that feature needs an internet connection; a direct link to the original PDF remains available as a fallback.</p>
+                    <p><strong>New portfolio card:</strong> duplicate a project card in the work section with a unique <code>data-deck</code> key, then add a matching entry to <code>projects</code> with its <code>title</code>, <code>category</code>, <code>description</code>, <code>cover</code>, and either <code>pdf</code> or <code>type: "images"</code> plus a <code>slides</code> array. Set <code>originalPptx</code> if the source file may be downloaded. Keep all paths relative to this HTML file.</p>
+                    <p><strong>Testing:</strong> use a local web server (for example, VS Code Live Server) and deploy this file with its asset folders together. Opening HTML as <code>file://</code> may prevent PDF.js or browsers from loading local assets correctly. The static site itself has no backend.</p>
+                </div>
+            </details>
+        </section>
+        <section class="manifesto" id="approach">
+            <div class="wrap">
+                <div class="manifesto-grid reveal">
+                    <div class="eyebrow">02 / Point of view</div>
+                    <div>
+                        <h2>Not more content.<br><em>More meaning.</em></h2>
+                        <p class="manifesto-copy">We believe the strongest work starts with a sharper question. Who is
+                            this for? What should they feel? Why should they care? We connect the answers to a clear
+                            strategy, a distinctive creative idea and the details that make it real.</p>
+                    </div>
+                </div>
+                <div class="services" id="services">
+                    <div class="service">
+                        <div class="service-num">01 — THINK</div>
+                        <h3>Strategy</h3>
+                        <p>Positioning, audience insight, campaign planning and brand direction.</p>
+                    </div>
+                    <div class="service">
+                        <div class="service-num">02 — CREATE</div>
+                        <h3>Creative</h3>
+                        <p>Concepts, visual identity, content systems and compelling storytelling.</p>
+                    </div>
+                    <div class="service">
+                        <div class="service-num">03 — CONNECT</div>
+                        <h3>Marketing</h3>
+                        <p>Social media, digital campaigns, creator partnerships and paid media.</p>
+                    </div>
+                    <div class="service">
+                        <div class="service-num">04 — DELIVER</div>
+                        <h3>Experiences</h3>
+                        <p>Event management, production, guest journeys and on-ground execution.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section wrap">
+            <div class="section-head reveal">
+                <div>
+                    <div class="eyebrow">03 / How we work</div>
+                    <h2>Clear thinking.<br>Careful doing.</h2>
+                </div>
+                <p>One connected process, built to keep the big idea and the small details moving in the same direction.
+                </p>
+            </div>
+            <div class="process-list">
+                <div class="process-row reveal">
+                    <div class="num">01</div>
+                    <h3>Listen & understand</h3>
+                    <p>We get close to your goals, your audience and the challenge behind the brief.</p>
+                    <div class="plus">↘</div>
+                </div>
+                <div class="process-row reveal">
+                    <div class="num">02</div>
+                    <h3>Find the idea</h3>
+                    <p>We shape a strategic direction and creative concept that gives the work a reason to exist.</p>
+                    <div class="plus">↘</div>
+                </div>
+                <div class="process-row reveal">
+                    <div class="num">03</div>
+                    <h3>Build the details</h3>
+                    <p>We bring the plan to life through content, design, coordination and execution.</p>
+                    <div class="plus">↘</div>
+                </div>
+                <div class="process-row reveal">
+                    <div class="num">04</div>
+                    <h3>Learn & improve</h3>
+                    <p>We look at what resonated, what worked and where the next opportunity lives.</p>
+                    <div class="plus">↗</div>
+                </div>
+            </div>
+        </section>
+        <section class="contact" id="contact">
+            <div class="wrap contact-grid">
+                <div class="reveal">
+                    <div class="eyebrow">04 / Start something</div>
+                    <h2>Have a good<br><em>feeling?</em></h2>
+                    <p class="contact-intro">Tell us what you're building, planning or imagining. We'll take it from
+                        there — thoughtfully, collaboratively, and with intent.</p>
+                    <p class="eyebrow" style="margin-top:32px">New business enquiries</p><a
+                        href="mailto:hello@rushsocials.com" id="emailLink"
+                        style="font-size:15px;border-bottom:1px solid var(--ink);padding-bottom:4px">hello@rushsocials.com
+                        ↗</a>
+                </div>
+                <form class="contact-form reveal" id="contactForm">
+                    <div class="field"><label for="name">Your name</label><input id="name" name="name"
+                            autocomplete="name" placeholder="Name" required></div>
+                    <div class="field"><label for="email">Email address</label><input id="email" name="email"
+                            type="email" autocomplete="email" placeholder="you@company.com" required></div>
+                    <div class="field"><label for="interest">What are you looking for?</label><select id="interest"
+                            name="interest">
+                            <option>Brand strategy & creative</option>
+                            <option>Social media & digital marketing</option>
+                            <option>Wedding & event management</option>
+                            <option>Pitch deck / campaign development</option>
+                            <option>Something else</option>
+                        </select></div>
+                    <div class="field"><label for="message">A little about the project</label><textarea id="message"
+                            name="message" placeholder="The idea, the challenge, the ambition…"></textarea></div>
+                    <button class="button" type="submit">Let's talk <span>↗</span></button>
+                    <p class="form-note">This form opens your email app with the details filled in. No information is
+                        stored by this demo site.</p>
+                    <p class="form-status" id="formStatus" role="status"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="wrap footer-row"><a class="wordmark" href="#home">RUSH<span>SOCIALS</span></a>
+            <p>Independent by nature. Intentional by design. © <span id="year"></span> RUSH SOCIALS.</p>
+            <div class="footer-links"><a href="#work">Work</a><a href="#approach">Approach</a><a href="#contact">Contact
+                    ↗</a></div>
+        </div>
+    </footer>
+
+    <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Pitch deck viewer">
+        <div class="viewer-bar">
+            <div class="viewer-brand">RUSH SOCIALS</div>
+            <div class="viewer-title" id="viewerTitle">Selected project / Presentation preview</div>
+            <div class="viewer-actions">
+                <a class="icon-btn" id="openOriginal" href="#" target="_blank" rel="noopener" aria-label="Open original presentation in a new tab" title="Open original" style="text-decoration:none" hidden>↗</a>
+                <a class="icon-btn" id="downloadOriginal" href="#" download aria-label="Download original presentation" title="Download original" style="text-decoration:none" hidden>↓</a>
+                <button class="icon-btn" id="fullscreenViewer" type="button" aria-label="Enter fullscreen presentation mode" title="Fullscreen">⛶</button>
+                <button class="icon-btn" id="closeViewer" aria-label="Close presentation" title="Close (Esc)">×</button>
+            </div>
+        </div>
+        <div class="viewer-main">
+            <div class="slide-stage">
+                <div class="slide-frame" id="slideFrame"></div>
+            </div>
+            <aside class="viewer-sidebar">
+                <div class="side-label">In this presentation</div>
+                <div class="thumbs" id="thumbs"></div>
+            </aside>
+        </div>
+        <div class="viewer-foot">
+                <div class="viewer-controls"><button class="button light" id="prevSlide" type="button" aria-label="Previous slide or page">←
+                    Previous</button><span class="viewer-count" id="slideCount" aria-live="polite">— / —</span><button class="button"
+                    id="nextSlide" type="button" aria-label="Next slide or page">Next →</button></div>
+            <div class="progress"><span id="progressFill"></span></div>
+            <div class="viewer-help">Use ← → keys to navigate · Esc to close</div>
+        </div>
+    </div>
+    <script>
+        /* PROJECT CONFIGURATION: paths are relative to this HTML file.
+           Add PDF projects with pdf: "decks/name.pdf". For PPTX, pre-render
+           slide images and set type: "images" plus an optional originalPptx path. */
+        const projects = {
+            wedding: {
+                title: "Wedding Management & Creative",
+                category: "Wedding Management and Creative Services",
+                description: "Wedding management, entertainment, production, photography, content and creative services.",
+                cover: "Rush_Socials_Wedding_Pitch_Deck/cover.jpeg",
+                coverFallback: "Rush_Socials_Wedding_Pitch_Deck/Rush_Socials_Wedding_Pitch_Deck-1.jpeg",
+                type: "images",
+                format: "13 supplied slide images",
+                slides: Array.from({ length: 13 }, (_, index) => {
+                    const number = String(index + 1).padStart(2, "0");
+                    return { title: "Slide " + number, src: "Rush_Socials_Wedding_Pitch_Deck/Rush_Socials_Wedding_Pitch_Deck-" + (index + 1) + ".jpeg" };
+                }),
+                originalPptx: ""
+            },
+            hospitality: {
+                title: "Hospitality & Destination",
+                category: "Hospitality and Destination Marketing",
+                description: "Content strategy, social campaigns and destination storytelling.",
+                cover: "",
+                type: "missing",
+                format: "Presentation not supplied"
+            },
+            branding: {
+                title: "Brand Strategy & Identity",
+                category: "Brand Strategy and Identity",
+                description: "Positioning, visual direction and brand systems.",
+                cover: "",
+                type: "missing",
+                format: "Presentation not supplied"
+            },
+            social: {
+                title: "Social & Digital Campaigns",
+                category: "Social Media and Digital Campaigns",
+                description: "Creative concepts, content systems and paid media.",
+                cover: "",
+                type: "missing",
+                format: "Presentation not supplied"
+            }
+        };
+        const agencyEmail = "hello@rushsocials.com"; // Set the agency's preferred enquiry address here.
+        const viewer = document.getElementById("viewer"), frame = document.getElementById("slideFrame");
+        const thumbs = document.getElementById("thumbs"), slideCount = document.getElementById("slideCount");
+        let activeProject = "", activeSlide = 0, lastFocus = null, pdfDocument = null, renderToken = 0, pdfJsPromise = null;
+        let nativeFullscreenActive = false, nativeFullscreenExitPending = false;
+
+        function safeAssetPath(path) {
+            if (typeof path !== "string" || !path.length) return false;
+            let decoded;
+            try { decoded = decodeURIComponent(path); } catch (error) { return false; }
+            return !/^(?:[a-z]+:|\/|\\)/i.test(decoded) && !/(?:^|[\\/])\.\.(?:[\\/]|$)/.test(decoded);
+        }
+
+        function clearPdf() {
+            pdfDocument = null;
+        }
+
+        function setOriginalLinks(path, downloadName) {
+            const open = document.getElementById("openOriginal"), download = document.getElementById("downloadOriginal");
+            if (!safeAssetPath(path)) {
+                open.hidden = true;
+                download.hidden = true;
+                return;
+            }
+            open.href = path;
+            download.href = path;
+            download.download = downloadName || "";
+            open.hidden = false;
+            download.hidden = false;
+        }
+
+        function showMessage(title, message) {
+            frame.replaceChildren();
+            const box = document.createElement("div");
+            box.className = "viewer-empty";
+            const heading = document.createElement("h3");
+            heading.textContent = title;
+            const copy = document.createElement("p");
+            copy.textContent = message;
+            box.append(heading, copy);
+            frame.append(box);
+            slideCount.textContent = "— / —";
+            document.getElementById("progressFill").style.width = "0%";
+            document.getElementById("prevSlide").disabled = true;
+            document.getElementById("nextSlide").disabled = true;
+            thumbs.replaceChildren();
+        }
+
+        function loadPdfJs() {
+            if (window.pdfjsLib) return Promise.resolve(window.pdfjsLib);
+            if (pdfJsPromise) return pdfJsPromise;
+            pdfJsPromise = new Promise((resolve, reject) => {
+                const script = document.createElement("script");
+                script.src = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js";
+                script.onload = () => {
+                    if (!window.pdfjsLib) return reject(new Error("PDF.js did not initialize."));
+                    window.pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+                    resolve(window.pdfjsLib);
+                };
+                script.onerror = () => reject(new Error("PDF.js could not load. Check your internet connection."));
+                document.head.append(script);
+            });
+            return pdfJsPromise;
+        }
+
+        function updateNavigation(total) {
+            slideCount.textContent = String(activeSlide + 1).padStart(2, "0") + " / " + String(total).padStart(2, "0");
+            document.getElementById("progressFill").style.width = ((activeSlide + 1) / total * 100) + "%";
+            document.getElementById("prevSlide").disabled = activeSlide <= 0;
+            document.getElementById("nextSlide").disabled = activeSlide >= total - 1;
+            thumbs.querySelectorAll(".thumb").forEach((button, index) => {
+                button.classList.toggle("active", index === activeSlide);
+                if (index === activeSlide) button.setAttribute("aria-current", "true");
+                else button.removeAttribute("aria-current");
+            });
+            const selected = thumbs.querySelector(".thumb.active");
+            if (selected) selected.scrollIntoView({ block: "nearest", inline: "nearest" });
+        }
+
+        function addThumbnail(index, title, imagePath) {
+            const button = document.createElement("button");
+            button.type = "button";
+            button.className = "thumb";
+            button.setAttribute("aria-label", "Go to " + title);
+            const preview = document.createElement("span");
+            preview.className = "thumb-preview";
+            preview.textContent = String(index + 1).padStart(2, "0");
+            if (imagePath) {
+                const image = document.createElement("img");
+                image.src = imagePath;
+                image.alt = "";
+                image.onerror = () => { image.remove(); };
+                preview.replaceChildren(image);
+            }
+            const copy = document.createElement("span");
+            copy.className = "thumb-copy";
+            copy.textContent = title;
+            const number = document.createElement("span");
+            number.textContent = (activeProject && projects[activeProject].pdf ? "Page " : "Slide ") + String(index + 1).padStart(2, "0");
+            copy.append(number);
+            button.append(preview, copy);
+            button.addEventListener("click", () => { activeSlide = index; renderSlide(); });
+            thumbs.append(button);
+        }
+
+        async function renderPdfPage(token) {
+            if (!pdfDocument || token !== renderToken) return;
+            const page = await pdfDocument.getPage(activeSlide + 1);
+            if (token !== renderToken) return;
+            const base = page.getViewport({ scale: 1 });
+            const scale = Math.min((frame.clientWidth || 900) / base.width, (frame.clientHeight || 520) / base.height, 2);
+            const viewport = page.getViewport({ scale });
+            const canvas = document.createElement("canvas");
+            const context = canvas.getContext("2d", { alpha: false });
+            canvas.width = Math.ceil(viewport.width);
+            canvas.height = Math.ceil(viewport.height);
+            frame.replaceChildren(canvas);
+            await page.render({ canvasContext: context, viewport }).promise;
+            if (token === renderToken) updateNavigation(pdfDocument.numPages);
+        }
+
+        async function renderSlide() {
+            const project = projects[activeProject];
+            const token = ++renderToken;
+            if (project.pdf && pdfDocument) {
+                try { await renderPdfPage(token); }
+                catch (error) { if (token === renderToken) showMessage("This PDF page could not be displayed", "Use Open original to view or download the PDF in your browser."); }
+                return;
+            }
+            if (project.type === "images") {
+                const slide = project.slides[activeSlide];
+                frame.replaceChildren();
+                const image = document.createElement("img");
+                image.alt = project.title + " — " + slide.title;
+                image.src = slide.src;
+                image.onerror = () => {
+                    if (token === renderToken) showMessage("Slide image unavailable", "Check that this image exists at: " + slide.src + ". Keep the presentation folder beside index.html.");
+                };
+                frame.append(image);
+                updateNavigation(project.slides.length);
+            }
+        }
+
+        async function openDeck(key) {
+            const project = projects[key];
+            if (!project) return;
+            clearPdf();
+            activeProject = key;
+            activeSlide = 0;
+            renderToken++;
+            lastFocus = document.activeElement;
+            document.getElementById("viewerTitle").textContent = project.title + " / " + project.category;
+            setOriginalLinks(project.pdf || project.originalPptx || "", project.downloadName || "");
+            thumbs.replaceChildren();
+            viewer.classList.add("open");
+            document.body.style.overflow = "hidden";
+            document.getElementById("closeViewer").focus();
+
+            if (project.type === "images" && Array.isArray(project.slides) && project.slides.length) {
+                if (project.slides.some(slide => !safeAssetPath(slide.src))) {
+                    showMessage("Invalid slide path", "Presentation image paths must be relative paths inside the website folder.");
+                    return;
+                }
+                project.slides.forEach((slide, index) => addThumbnail(index, slide.title || "Slide " + (index + 1), slide.src));
+                await renderSlide();
+                return;
+            }
+            if (project.pdf && safeAssetPath(project.pdf)) {
+                try {
+                    const pdfjs = await loadPdfJs();
+                    const loaded = await pdfjs.getDocument(project.pdf).promise;
+                    if (activeProject !== key || !viewer.classList.contains("open")) return;
+                    pdfDocument = loaded;
+                    for (let index = 0; index < loaded.numPages; index++) addThumbnail(index, "Page " + String(index + 1).padStart(2, "0"));
+                    await renderSlide();
+                    const token = renderToken;
+                    for (let index = 0; index < loaded.numPages; index++) {
+                        if (token !== renderToken || activeProject !== key) break;
+                        try {
+                            const page = await loaded.getPage(index + 1);
+                            const viewport = page.getViewport({ scale: 150 / page.getViewport({ scale: 1 }).width });
+                            const canvas = document.createElement("canvas");
+                            canvas.width = Math.ceil(viewport.width);
+                            canvas.height = Math.ceil(viewport.height);
+                            await page.render({ canvasContext: canvas.getContext("2d"), viewport }).promise;
+                            const preview = thumbs.children[index] && thumbs.children[index].querySelector(".thumb-preview");
+                            if (preview && token === renderToken) {
+                                const image = document.createElement("img");
+                                image.src = canvas.toDataURL("image/jpeg", .72);
+                                image.alt = "";
+                                preview.replaceChildren(image);
+                            }
+                        } catch (error) { /* Keep the numbered page thumbnail if a page preview fails. */ }
+                    }
+                } catch (error) {
+                    showMessage("PDF preview unavailable", error.message + " The original PDF link remains available above. A local web server may also be required for local files.");
+                }
+                return;
+            }
+            showMessage("Presentation not supplied", "This portfolio artwork is illustrative. Add a PDF path or pre-rendered slide image paths to this project in the projects configuration before publishing a presentation.");
+        }
+
+        function closeDeck() {
+            renderToken++;
+            clearPdf();
+            viewer.classList.remove("open");
+            document.body.style.overflow = "";
+            frame.replaceChildren();
+            thumbs.replaceChildren();
+            if (document.fullscreenElement === viewer && document.exitFullscreen) document.exitFullscreen().catch(() => { });
+            if (lastFocus && lastFocus.focus) lastFocus.focus();
+        }
+
+        function moveSlide(delta) {
+            const project = projects[activeProject];
+            const total = pdfDocument ? pdfDocument.numPages : project && project.slides ? project.slides.length : 0;
+            if (!total) return;
+            const next = Math.max(0, Math.min(total - 1, activeSlide + delta));
+            if (next === activeSlide) return;
+            activeSlide = next;
+            renderSlide();
+        }
+
+        document.querySelectorAll("[data-deck]").forEach(link => {
+            const project = projects[link.dataset.deck];
+            if (!project) return;
+            const card = link.closest(".project");
+            const title = card.querySelector(".project-meta h3");
+            const description = card.querySelector(".project-meta p");
+            if (title) title.textContent = project.title;
+            if (description) description.textContent = project.description;
+            if (project.cover && safeAssetPath(project.cover)) {
+                const cover = card.querySelector(".project-cover");
+                if (cover) {
+                    cover.src = project.cover;
+                    cover.onerror = () => {
+                        if (project.coverFallback && cover.src !== new URL(project.coverFallback, document.baseURI).href) {
+                            cover.src = project.coverFallback;
+                        } else cover.hidden = true;
+                    };
+                }
+            }
+            const badge = document.createElement("span");
+            badge.className = "project-badge";
+            badge.textContent = project.format;
+            card.querySelector(".project-meta > div").append(badge);
+            if (project.type === "missing") badge.textContent = "Illustrative concept · no deck supplied";
+            link.setAttribute("aria-label", "View presentation for " + project.title);
+            link.addEventListener("click", event => { event.preventDefault(); openDeck(link.dataset.deck); });
+        });
+        document.getElementById("closeViewer").addEventListener("click", closeDeck);
+        document.getElementById("prevSlide").addEventListener("click", () => moveSlide(-1));
+        document.getElementById("nextSlide").addEventListener("click", () => moveSlide(1));
+        document.getElementById("fullscreenViewer").addEventListener("click", async event => {
+            const button = event.currentTarget;
+            if (viewer.classList.contains("immersive-mode")) {
+                viewer.classList.remove("immersive-mode");
+                button.setAttribute("aria-pressed", "false");
+                button.setAttribute("aria-label", "Enter fullscreen presentation mode");
+                button.title = "Fullscreen";
+                return;
+            }
+            try {
+                if (document.fullscreenElement) await document.exitFullscreen();
+                else if (typeof viewer.requestFullscreen === "function") await viewer.requestFullscreen();
+                else throw new Error("Fullscreen API unavailable");
+            } catch (error) {
+                // Embedded browsers may deny native fullscreen; keep the slide visible and expand the viewer instead.
+                viewer.classList.add("immersive-mode");
+                button.setAttribute("aria-pressed", "true");
+                button.setAttribute("aria-label", "Exit immersive presentation mode");
+                button.title = "Exit immersive mode";
+            }
+        });
+        document.addEventListener("fullscreenchange", () => {
+            const button = document.getElementById("fullscreenViewer");
+            const full = document.fullscreenElement === viewer;
+            if (nativeFullscreenActive && !full) {
+                nativeFullscreenExitPending = true;
+                window.setTimeout(() => { nativeFullscreenExitPending = false; }, 700);
+            }
+            nativeFullscreenActive = full;
+            button.setAttribute("aria-pressed", String(full));
+            if (full) {
+                viewer.classList.remove("immersive-mode");
+                button.setAttribute("aria-label", "Exit fullscreen presentation mode");
+                button.title = "Exit fullscreen";
+            } else if (!viewer.classList.contains("immersive-mode")) {
+                button.setAttribute("aria-label", "Enter fullscreen presentation mode");
+                button.title = "Fullscreen";
+            }
+        });
+        document.addEventListener("keydown", event => {
+            if (!viewer.classList.contains("open")) return;
+            if (event.key === "Escape") {
+                if (nativeFullscreenActive || document.fullscreenElement === viewer || nativeFullscreenExitPending) {
+                    event.preventDefault();
+                    nativeFullscreenExitPending = false;
+                    if (document.fullscreenElement === viewer && document.exitFullscreen) document.exitFullscreen().catch(() => { });
+                    return;
+                }
+                if (viewer.classList.contains("immersive-mode")) {
+                    viewer.classList.remove("immersive-mode");
+                    const button = document.getElementById("fullscreenViewer");
+                    button.setAttribute("aria-pressed", "false");
+                    button.setAttribute("aria-label", "Enter fullscreen presentation mode");
+                    button.title = "Fullscreen";
+                } else closeDeck();
+                return;
+            }
+            if (event.key === "ArrowRight") { event.preventDefault(); moveSlide(1); }
+            if (event.key === "ArrowLeft") { event.preventDefault(); moveSlide(-1); }
+            if (event.key === "Tab") {
+                const focusable = Array.from(viewer.querySelectorAll("a[href]:not([hidden]), button:not(:disabled):not([hidden])"));
+                if (!focusable.length) return;
+                const first = focusable[0], last = focusable[focusable.length - 1];
+                if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+                else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+            }
+        });
+        document.getElementById("menuToggle").addEventListener("click", () => { const nav = document.getElementById("navlinks"), open = nav.classList.toggle("open"); document.getElementById("menuToggle").setAttribute("aria-expanded", String(open)); document.getElementById("menuToggle").textContent = open ? "×" : "☰" });
+        document.querySelectorAll("#navlinks a").forEach(a => a.addEventListener("click", () => { document.getElementById("navlinks").classList.remove("open"); document.getElementById("menuToggle").setAttribute("aria-expanded", "false"); document.getElementById("menuToggle").textContent = "☰" }));
+        document.getElementById("year").textContent = new Date().getFullYear();
+        const observer = ("IntersectionObserver" in window) ? new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add("visible"); observer.unobserve(entry.target) } }), { threshold: .08 }) : null;
+        document.querySelectorAll(".reveal").forEach(el => observer ? observer.observe(el) : el.classList.add("visible"));
+        document.getElementById("contactForm").addEventListener("submit", e => {
+            e.preventDefault(); const f = e.currentTarget, data = new FormData(f);
+            const subject = encodeURIComponent("New project enquiry — " + data.get("name"));
+            const body = encodeURIComponent("Name: " + data.get("name") + "\nEmail: " + data.get("email") + "\nInterested in: " + data.get("interest") + "\n\nProject details:\n" + (data.get("message") || "Not provided"));
+            document.getElementById("formStatus").textContent = "Your email app should open with the enquiry prepared. If it doesn't, email " + agencyEmail + " directly.";
+            document.getElementById("formStatus").classList.add("show");
+            window.location.href = "mailto:" + agencyEmail + "?subject=" + subject + "&body=" + body;
+        });
+        document.getElementById("emailLink").href = "mailto:" + agencyEmail;
+        document.getElementById("emailLink").textContent = agencyEmail + " ↗";
+    </script>
+</body>
+
+</html>
