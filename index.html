@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#f5f3ee">
+    <meta name="theme-color" content="#101011">
     <title>RUSH SOCIALS — Creative, considered.</title>
     <style>
         :root {
@@ -299,6 +299,11 @@
 
         .project {
             min-width: 0
+        }
+
+        #wedding,
+        #hyrox {
+            scroll-margin-top: 100px
         }
 
         .project:nth-child(even) {
@@ -955,8 +960,9 @@
         .viewer-main {
             flex: 1;
             min-height: 0;
+            min-width: 0;
             display: grid;
-            grid-template-columns: 1fr 230px
+            grid-template-columns: minmax(0, 1fr) 230px
         }
 
         .slide-stage {
@@ -1409,7 +1415,7 @@
             }
 
             .viewer-main {
-                grid-template-columns: 1fr;
+                grid-template-columns: minmax(0, 1fr);
                 grid-template-rows: minmax(0, 1fr) 98px
             }
 
@@ -1438,6 +1444,11 @@
 
             .slide-stage {
                 padding: 18px
+            }
+
+            .slide-frame {
+                width: 100%;
+                min-width: 0;
             }
 
             .viewer-foot {
@@ -1564,6 +1575,288 @@
                 transform: none
             }
         }
+
+        /* RUSH dark identity and mobile-first portfolio refresh */
+        :root {
+            --paper: #101011;
+            --ink: #f5f3ee;
+            --muted: #aaa9a4;
+            --line: #30302e;
+            --accent: #f05c3d;
+            --white: #101011;
+            --max: 1240px;
+        }
+
+        body {
+            background: var(--paper);
+            color: var(--ink);
+        }
+
+        header {
+            background: rgba(16, 16, 17, .9);
+            border-bottom-color: #ffffff16;
+        }
+
+        .topline {
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), #ff9b69 58%, #f4d6a5);
+        }
+
+        .brand-lockup {
+            display: inline-flex;
+            align-items: center;
+            gap: 11px;
+            flex-shrink: 0;
+        }
+
+        .brand-monogram {
+            width: 39px;
+            height: 39px;
+            display: block;
+            object-fit: contain;
+            flex: 0 0 auto;
+        }
+
+        .wordmark {
+            font-size: 18px;
+            letter-spacing: -.07em;
+        }
+
+        .wordmark span {
+            color: #aaa9a4;
+            font-size: 7px;
+            letter-spacing: .17em;
+        }
+
+        .navlinks { gap: 24px; }
+
+        .nav-cta,
+        .button {
+            border-color: var(--accent);
+            background: var(--accent);
+            color: #121212;
+            border-radius: 2px;
+            min-height: 44px;
+        }
+
+        .nav-cta:hover,
+        .button:hover {
+            background: #ff795b;
+            border-color: #ff795b;
+            color: #101011;
+        }
+
+        .button.light {
+            color: var(--ink);
+            border-color: #555550;
+        }
+
+        .hero {
+            min-height: 0;
+            padding-top: clamp(76px, 11vw, 142px);
+            padding-bottom: clamp(66px, 9vw, 112px);
+            position: relative;
+            isolation: isolate;
+        }
+
+        .hero:before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            width: min(62vw, 760px);
+            aspect-ratio: 1;
+            right: 0;
+            top: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle, #f05c3d20 0, #f05c3d09 38%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-top { align-items: center; }
+        .hero-note { color: #bbb9b3; }
+
+        .hero h1 {
+            font-size: clamp(68px, 12.8vw, 170px);
+            margin: clamp(56px, 8vw, 95px) 0 40px;
+            max-width: 1000px;
+        }
+
+        .hero h1 em { color: #f1b690; }
+        .hero-desc { max-width: 520px; color: #cbc9c3; }
+        .hero-desc strong { color: #fff; }
+
+        .hero-routes {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .route-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 22px;
+            min-height: 48px;
+            padding: 0 16px;
+            border: 1px solid #5a5954;
+            border-radius: 2px;
+            font-size: 12px;
+            font-weight: 700;
+            transition: border-color .2s, background .2s, color .2s;
+        }
+
+        .route-link:first-child { background: var(--accent); border-color: var(--accent); color: #111; }
+        .route-link:hover { border-color: var(--accent); color: #ff9b80; }
+        .route-link:first-child:hover { background: #ff795b; color: #111; }
+        .route-link span { font-size: 16px; }
+
+        .marquee {
+            border-color: var(--line);
+            background: #171718;
+            color: #d0cec8;
+        }
+
+        .section { padding-top: clamp(76px, 9vw, 212px); padding-bottom: clamp(76px, 9vw, 212px); }
+        .section-head h2 { color: #f5f3ee; }
+        .section-head p { color: var(--muted); }
+        .work-grid { grid-template-columns: 1.1fr .9fr; gap: 24px; }
+        .project:nth-child(even) { padding-top: 76px; }     
+
+        .project-visual {
+            aspect-ratio: 1.28;
+            background: #242321;
+            border: 1px solid #ffffff18;
+        }
+
+        .project-visual:after {
+            inset: 10px;
+            border-color: #ffffff35;
+        }
+
+        .project-cover {
+            transform: none;
+            object-position: center 42%;
+            transition: transform .6s ease;
+        }
+
+        .project:hover .project-cover { transform: scale(1.035); }
+
+        .project-cover-label {
+            left: 24px;
+            bottom: 24px;
+            border: 1px solid #ffffff45;
+            background: #101011d9;
+            border-radius: 2px;
+        }
+
+        .project-meta h3 { color: #f5f3ee; }
+        .project-meta p { color: #aaa9a4; }
+        .project-index { color: #aaa9a4; }
+        .project-open { border-color: #8c8b85; }
+        .project-badge { color: #f2a98c; }
+        .project-open[aria-disabled="true"] { cursor: default; }
+        .project-open[aria-disabled="true"]:hover { color: var(--muted); border-color: var(--line); }
+
+        .hyrox-visual {
+            min-height: 290px;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: clamp(25px, 4vw, 48px);
+            background: #20201f;
+            isolation: isolate;
+        }
+
+        .hyrox-visual:before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            width: 430px;
+            height: 430px;
+            right: -125px;
+            top: -110px;
+            border-radius: 50%;
+            border: 1px solid #f05c3d88;
+            box-shadow: 0 0 0 32px #f05c3d0a, 0 0 0 68px #f05c3d0a, 0 0 0 108px #f05c3d08;
+        }
+
+        .hyrox-kicker { color: #f2a98c; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; }
+        .hyrox-title { font-size: clamp(58px, 9vw, 108px); font-weight: 900; letter-spacing: -.1em; line-height: .8; }
+        .hyrox-title span { display: block; color: var(--accent); }
+        .hyrox-bottom { display: flex; align-items: end; justify-content: space-between; gap: 12px; color: #c6c4be; font-size: 11px; line-height: 1.6; }
+        .hyrox-stamp { border: 1px solid #65635e; padding: 9px 11px; color: #fff; font-size: 9px; letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; }
+
+        .manifesto { background: #181819; color: var(--ink); }
+        .manifesto h2 em { color: #f2a98c; }
+        .manifesto-copy { color: #bbb9b3; }
+        .service { border-color: #3e3e3b; }
+        .service-num,.service p { color: #aaa9a4; }
+        .process-row { border-color: var(--line); }
+        .process-row p { color: var(--muted); }
+        .contact { background: #1b1b1c; color: var(--ink); }
+        .contact-intro { color: #bbb9b3; }
+        .contact .eyebrow { color: #d0cec8; }
+        .field input,.field textarea,.field select { color: var(--ink); border-color: #555550; }
+        .field input::placeholder,.field textarea::placeholder { color: #777670; }
+        .field select { color-scheme: dark; }
+        .form-note,.form-status { color: #aaa9a4; }
+        .footer { padding: 40px 0; background: #0a0a0b; border-top: 1px solid #30302e; }
+        .footer-row { align-items: flex-start; }
+        .footer-main { display: grid; gap: 14px; }
+        .footer-main p { max-width: 250px; line-height: 1.6; margin: 0; }
+        .footer-nav { display: flex; gap: clamp(30px, 6vw, 84px); }
+        .footer-group { display: grid; align-content: start; gap: 12px; }
+        .footer-group strong { color: #f5f3ee; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 3px; }
+        .footer-group a { font-size: 11px; }
+        .footer-bottom { border-top: 1px solid #30302e; margin-top: 34px; padding-top: 17px; color: #85847e; font-size: 10px; }
+        .menu-toggle { color: var(--ink); border-color: #555550; border-radius: 2px; }
+
+        @media(max-width:800px) {
+            .navlinks { background: #141415; border-color: var(--line); }
+            .navlinks a { padding: 5px 0; }
+            .hero { min-height: 0; padding-top: 62px; padding-bottom: 62px; }
+            .hero h1 { margin: 58px 0 32px; }
+            .work-grid { grid-template-columns: 1fr 1fr; gap: 18px; }
+            .project:nth-child(even) { padding-top: 42px; }
+            .hyrox-visual { min-height: auto; aspect-ratio: 1.18; padding: 22px; }
+            .footer-row { flex-direction: column; }
+            .footer-nav { width: 100%; justify-content: space-between; }
+        }
+
+        @media(max-width:520px) {
+            .wrap { width: calc(100% - 32px); }
+            .nav { height: 62px; }
+            .brand-monogram { width: 38px; height: 38px; }
+            .wordmark { font-size: 16px; }
+            .hero { padding-top: 48px; padding-bottom: 50px; }
+            .hero-top { gap: 14px; }
+            .hero-note { margin: 0; font-size: 11px; }
+            .hero h1 { font-size: clamp(58px, 17vw, 86px); margin: 53px 0 28px; }
+            .hero-bottom { gap: 15px; }
+            .hero-desc { font-size: 14px; }
+            .hero-routes { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; width: 100%; }
+            .route-link { min-height: 48px; padding: 0 11px; gap: 6px; font-size: 11px; }
+            .marquee { padding: 14px 0; }
+            .section { padding: 64px 0; }
+            .section-head { margin-bottom: 25px; }
+            .section-head h2 { font-size: clamp(40px, 12vw, 52px); }
+            .work-grid { grid-template-columns: 1fr; gap: 32px; }
+            .project:nth-child(even) { padding-top: 0; }
+            .project-visual { width: 100%; min-width: 0; aspect-ratio: 1.06; }
+            .hyrox-visual { width: 100%; height: auto; min-width: 0; aspect-ratio: 1.06; min-height: 0; padding: 25px; }
+            .hyrox-title { font-size: clamp(76px, 23vw, 110px); }
+            .project-meta h3 { font-size: 19px; }
+            .project-meta p { font-size: 12px; }
+            .project-open { min-height: 40px; }
+            .services { grid-template-columns: 1fr 1fr; }
+            .footer-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 25px 16px; }
+            .footer-bottom { line-height: 1.7; }
+            .contact h2 { font-size: clamp(56px, 16vw, 82px); }
+        }
     </style>
 </head>
 
@@ -1571,11 +1864,9 @@
     <div class="topline"></div>
     <header>
         <div class="wrap nav">
-            <a class="wordmark" href="#home" aria-label="Rush Socials home">RUSH<span>SOCIALS / CREATIVE
-                    STUDIO</span></a>
+            <a class="brand-lockup" href="#home" aria-label="Rush Socials home"><img class="brand-monogram" src="logo.png" alt="RUSH Socials logo"><span class="wordmark">RUSH SOCIALS <span> SOCIALS / CREATIVE STUDIO</span></span></a>
             <nav class="navlinks" id="navlinks" aria-label="Main navigation">
-                <a href="#work">Selected work</a><a href="#approach">Our approach</a><a
-                    href="#services">Capabilities</a><a href="#contact">Contact</a>
+                <a href="#work">Selected work</a><a href="#wedding">Wedding</a><a href="#hyrox">HYROX</a><a href="#approach">Our approach</a><a href="#contact">Contact</a>
             </nav>
             <a class="nav-cta" href="#contact">Start a conversation <span>↗</span></a>
             <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
@@ -1585,13 +1876,16 @@
         <section class="wrap hero">
             <div class="hero-top">
                 <div class="eyebrow">Independent creative & marketing studio<br>India · Available worldwide</div>
-                <p class="hero-note">Good work gets attention.<br>Considered work creates a feeling that stays.</p>
+                <p class="hero-note">Independent creative studio.<br>Big ideas, brought to life with intent.</p>
             </div>
             <h1>Make it<br><em>mean</em> more<span style="color:var(--accent)">.</span></h1>
             <div class="hero-bottom">
                 <p class="hero-desc">RUSH SOCIALS brings <strong>strategy, storytelling and execution</strong> together
                     to make brands feel unmistakable — from the first idea to the final detail.</p>
-                <a class="scroll-note" href="#work">Explore selected work</a>
+                <div class="hero-routes" aria-label="Explore our categories">
+                    <a class="route-link" href="#wedding">Weddings <span>↘</span></a>
+                    <a class="route-link" href="#hyrox">HYROX <span>↘</span></a>
+                </div>
             </div>
         </section>
         <div class="marquee" aria-label="Our capabilities">
@@ -1603,99 +1897,38 @@
             <div class="section-head reveal">
                 <div>
                     <div class="eyebrow">01 / Selected work</div>
-                    <h2>Ideas, made<br>tangible.</h2>
+                    <h2>Pick your<br>kind of rush.</h2>
                 </div>
-                <p>A snapshot of the worlds we build: clear thinking, confident visuals and stories designed around the
-                    people they need to reach.</p>
+                <p>Two very different worlds. One thoughtful team behind the moments, movement and meaning.</p>
             </div>
             <div class="work-grid">
-                <article class="project reveal">
+                <article class="project reveal" id="wedding">
                     <div class="project-visual visual-wedding" aria-label="Cover slide from the supplied RUSH SOCIALS wedding presentation">
                         <img class="project-cover" src="Rush_Socials_Wedding_Pitch_Deck/cover.jpeg" alt="RUSH SOCIALS Wedding Management & Creative Services pitch deck cover">
+                      
                     </div>
                     <div class="project-meta">
                         <div>
-                            <h3>Wedding Management & Creative</h3>
-                            <p>Experience design · Show management · Production</p>
-                        </div><span class="project-index">01 / 04</span>
+                            <h3>Weddings, thoughtfully made.</h3>
+                            <p>Management · Creative direction · Production</p>
+                        </div><span class="project-index">01 / 02</span>
                     </div>
-                    <a href="#" class="project-open" data-deck="wedding">View presentation <span>↗</span></a>
+                    <a href="#" class="project-open" data-deck="wedding">View wedding presentation <span>↗</span></a>
                 </article>
-                <article class="project reveal">
-                    <div class="project-visual visual-food" aria-label="Hospitality campaign artwork">
-                        <div class="food-layout">
-                            <div class="food-block">
-                                <div class="food-circle"></div>
-                            </div>
-                            <div class="food-block dark">
-                                <div class="food-type">A slower<br>kind of day.</div>
-                            </div>
-                            <div class="food-block dark">
-                                <div class="food-type">Stay<br>awhile.</div>
-                            </div>
-                            <div class="food-block">
-                                <div class="food-type">ESCAPE / EXPLORE</div>
-                            </div>
-                        </div>
+                <article class="project reveal" id="hyrox">
+                    <div class="project-visual hyrox-visual" aria-label="HYROX India 2026 media and content deck preview">
+                        <img class="project-cover" src="Rush_Socials_HYROX_India_2026_Pitch_Deck-1/Rush_Socials_HYROX_India_2026_Pitch_Deck-1-1.png" alt="HYROX India 2026 pitch deck cover">
+                        
                     </div>
                     <div class="project-meta">
                         <div>
-                            <h3>Hospitality & Destination</h3>
-                            <p>Content strategy · Social campaigns · Storytelling</p>
-                        </div><span class="project-index">02 / 04</span>
+                            <h3>HYROX India 2026</h3>
+                            <p>Sports photography · Cinematic reels · Athlete stories</p>
+                        </div><span class="project-index">02 / 02</span>
                     </div>
-                    <a href="#" class="project-open" data-deck="hospitality">View presentation <span>↗</span></a>
-                </article>
-                <article class="project reveal">
-                    <div class="project-visual visual-brand" aria-label="Brand strategy project artwork">
-                        <div class="brand-layout">
-                            <div class="brand-card"><small>POSITIONING /
-                                    01</small><strong>MAKE<br>YOUR<br>MARK.</strong><small>STRATEGY WITH
-                                    INTENTION</small></div>
-                            <div class="brand-card dark"><small>R/S — STUDIO</small>
-                                <div class="brand-mark">R.</div><small>IDENTITY · VOICE · WORLD</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-meta">
-                        <div>
-                            <h3>Brand Strategy & Identity</h3>
-                            <p>Positioning · Visual direction · Brand systems</p>
-                        </div><span class="project-index">03 / 04</span>
-                    </div>
-                    <a href="#" class="project-open" data-deck="branding">View presentation <span>↗</span></a>
-                </article>
-                <article class="project reveal">
-                    <div class="project-visual visual-campaign" aria-label="Social campaign project artwork">
-                        <div class="campaign-layout">
-                            <div class="campaign-tile"><span>Scroll<br>stopping.</span></div>
-                            <div class="campaign-tile"><span>Less noise.<br>More signal.</span></div>
-                            <div class="campaign-tile">
-                                <div class="sun"></div>
-                            </div>
-                            <div class="campaign-tile"><span>Make it<br>matter.</span></div>
-                        </div>
-                    </div>
-                    <div class="project-meta">
-                        <div>
-                            <h3>Social & Digital Campaigns</h3>
-                            <p>Creative concepts · Content systems · Paid media</p>
-                        </div><span class="project-index">04 / 04</span>
-                    </div>
-                    <a href="#" class="project-open" data-deck="social">View presentation <span>↗</span></a>
+                    <a href="#" class="project-open" data-deck="hyrox">View HYROX deck preview <span>↗</span></a>
                 </article>
             </div>
-            <p class="muted" style="font-size:11px;margin-top:35px;line-height:1.7">The wedding presentation uses supplied slide artwork. Artwork for the other categories is illustrative and is not represented as client work; their real decks can be added in the project configuration.</p>
-            <details class="project-setup">
-                <summary>Adding a project and preparing presentation files</summary>
-                <div class="setup-copy">
-                    <p><strong>Recommended folder layout:</strong> keep <code>index.html</code> beside <code>decks/</code> (PDFs), <code>original-files/</code> (optional PPTX downloads), and <code>presentations/project-id/</code> (converted slide images). The supplied wedding images are currently in <code>Rush_Socials_Wedding_Pitch_Deck/</code>.</p>
-                    <p><strong>PowerPoint:</strong> export the deck to PDF with Microsoft PowerPoint or LibreOffice Impress, then export each PDF page as a high-quality JPG or PNG. For example, with Poppler installed, run <code>pdftoppm -jpeg -r 150 input.pdf presentations/project-id/slide</code>; rename output pages to <code>slide-01.jpg</code>, <code>slide-02.jpg</code>, etc. Add the image paths, title, description, category, and optional original PPTX path to the <code>projects</code> object in this file. Browsers do not render PPTX files directly.</p>
-                    <p><strong>PDF:</strong> on the project entry, set <code>pdf: "decks/name.pdf"</code> and <code>format: "PDF presentation"</code>. PDF page rendering and thumbnails use PDF.js from a CDN when a PDF is opened, so that feature needs an internet connection; a direct link to the original PDF remains available as a fallback.</p>
-                    <p><strong>New portfolio card:</strong> duplicate a project card in the work section with a unique <code>data-deck</code> key, then add a matching entry to <code>projects</code> with its <code>title</code>, <code>category</code>, <code>description</code>, <code>cover</code>, and either <code>pdf</code> or <code>type: "images"</code> plus a <code>slides</code> array. Set <code>originalPptx</code> if the source file may be downloaded. Keep all paths relative to this HTML file.</p>
-                    <p><strong>Testing:</strong> use a local web server (for example, VS Code Live Server) and deploy this file with its asset folders together. Opening HTML as <code>file://</code> may prevent PDF.js or browsers from loading local assets correctly. The static site itself has no backend.</p>
-                </div>
-            </details>
         </section>
         <section class="manifesto" id="approach">
             <div class="wrap">
@@ -1790,6 +2023,7 @@
                             <option>Brand strategy & creative</option>
                             <option>Social media & digital marketing</option>
                             <option>Wedding & event management</option>
+                            <option>HYROX & performance events</option>
                             <option>Pitch deck / campaign development</option>
                             <option>Something else</option>
                         </select></div>
@@ -1804,10 +2038,19 @@
         </section>
     </main>
     <footer class="footer">
-        <div class="wrap footer-row"><a class="wordmark" href="#home">RUSH<span>SOCIALS</span></a>
-            <p>Independent by nature. Intentional by design. © <span id="year"></span> RUSH SOCIALS.</p>
-            <div class="footer-links"><a href="#work">Work</a><a href="#approach">Approach</a><a href="#contact">Contact
-                    ↗</a></div>
+        <div class="wrap">
+            <div class="footer-row">
+                <div class="footer-main">
+                    <a class="brand-lockup" href="#home" aria-label="Rush Socials home"><img class="brand-monogram" src="logo.png" alt="RUSH Socials logo"><span class="wordmark">RUSH SOCIALS /<span> CREATIVE STUDIO</span></span></a>
+                    <p>Independent by nature. Intentional by design. Making every moment mean more.</p>
+                </div>
+                <nav class="footer-nav" aria-label="Footer navigation">
+                    <div class="footer-group"><strong>Explore</strong><a href="#work">Selected work</a><a href="#wedding">Weddings</a><a href="#hyrox">HYROX</a></div>
+                    <div class="footer-group"><strong>The studio</strong><a href="#approach">Our approach</a><a href="#services">Capabilities</a><a href="#contact">Contact</a></div>
+                    <div class="footer-group"><strong>Say hello</strong><a href="mailto:hello@rushsocials.com">hello@rushsocials.com ↗</a><a href="#contact">Start a project ↗</a></div>
+                </nav>
+            </div>
+            <div class="footer-bottom">© <span id="year"></span> RUSH SOCIALS. All rights reserved.</div>
         </div>
     </footer>
 
@@ -1840,47 +2083,34 @@
         </div>
     </div>
     <script>
-        /* PROJECT CONFIGURATION: paths are relative to this HTML file.
-           Add PDF projects with pdf: "decks/name.pdf". For PPTX, pre-render
-           slide images and set type: "images" plus an optional originalPptx path. */
+        /* Only presentations with supplied, verified slide artwork are listed here. */
         const projects = {
             wedding: {
-                title: "Wedding Management & Creative",
+                title: "Weddings, thoughtfully made.",
                 category: "Wedding Management and Creative Services",
                 description: "Wedding management, entertainment, production, photography, content and creative services.",
                 cover: "Rush_Socials_Wedding_Pitch_Deck/cover.jpeg",
                 coverFallback: "Rush_Socials_Wedding_Pitch_Deck/Rush_Socials_Wedding_Pitch_Deck-1.jpeg",
                 type: "images",
-                format: "13 supplied slide images",
+                format: "13-slide presentation",
                 slides: Array.from({ length: 13 }, (_, index) => {
                     const number = String(index + 1).padStart(2, "0");
                     return { title: "Slide " + number, src: "Rush_Socials_Wedding_Pitch_Deck/Rush_Socials_Wedding_Pitch_Deck-" + (index + 1) + ".jpeg" };
                 }),
                 originalPptx: ""
             },
-            hospitality: {
-                title: "Hospitality & Destination",
-                category: "Hospitality and Destination Marketing",
-                description: "Content strategy, social campaigns and destination storytelling.",
-                cover: "",
-                type: "missing",
-                format: "Presentation not supplied"
-            },
-            branding: {
-                title: "Brand Strategy & Identity",
-                category: "Brand Strategy and Identity",
-                description: "Positioning, visual direction and brand systems.",
-                cover: "",
-                type: "missing",
-                format: "Presentation not supplied"
-            },
-            social: {
-                title: "Social & Digital Campaigns",
-                category: "Social Media and Digital Campaigns",
-                description: "Creative concepts, content systems and paid media.",
-                cover: "",
-                type: "missing",
-                format: "Presentation not supplied"
+            hyrox: {
+                title: "HYROX India 2026 — Media & Content",
+                category: "Gandhinagar · 26–28 November 2026",
+                description: "Sports photography, cinematic reels and athlete stories for HYROX India 2026.",
+                cover: "Rush_Socials_HYROX_India_2026_Pitch_Deck-1/cover.png",
+                type: "images",
+                format: "6-slide preview · QR placeholder on slide 2",
+                slides: Array.from({ length: 6 }, (_, index) => ({
+                    title: "Slide " + String(index + 1).padStart(2, "0"),
+                    src: "Rush_Socials_HYROX_India_2026_Pitch_Deck-1/Rush_Socials_HYROX_India_2026_Pitch_Deck-1-" + (index + 1) + ".png"
+                })),
+                originalPptx: ""
             }
         };
         const agencyEmail = "hello@rushsocials.com"; // Set the agency's preferred enquiry address here.
